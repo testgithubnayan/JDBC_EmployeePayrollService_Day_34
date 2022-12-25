@@ -1,7 +1,6 @@
 package com.bridgelabz;
 
 import java.sql.*;
-import java.util.Enumeration;
 
 public class JDBCConnection {
     public static void main(String[] args) {
@@ -37,6 +36,17 @@ public class JDBCConnection {
             System.out.println("Cannot find the driver in ths classpath");
         }
         
+
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement preparedStatement = connection.prepareStatement(("update employee_payroll set gender ='M' where name='Bill' or name='Charlie';"));
+            preparedStatement.execute();
+            ResultSet result = preparedStatement.executeQuery("select * from employee_payroll");
+            while (result.next()){
+                System.out.println(result.getInt("id")+" " +
+                        result.getString(2) +" "+
+                        result.getString(3) +" "+
+
         try {
             connection = DriverManager.getConnection(URL, USER, PASS);
             Statement statement = connection.createStatement();
@@ -74,6 +84,7 @@ public class JDBCConnection {
             while (result.next()){
                 System.out.println(result.getInt("id")+" " +
                         result.getString(2) +" "+
+
                         result.getDouble(4)+" "+
                         result.getDate(5));
             }
@@ -81,6 +92,7 @@ public class JDBCConnection {
             e.printStackTrace();
         }
     }
+
 
 }";
         String USER = "root";
