@@ -6,13 +6,6 @@ import java.util.Enumeration;
 public class JDBCConnection {
     public static void main(String[] args) {
 
-        String URL = "package com.bridgelabz;
-
-import java.sql.*;
-import java.util.Enumeration;
-
-public class JDBCConnection {
-    public static void main(String[] args) {
 
         String URL = "package com.bridgelabz;
 
@@ -21,6 +14,15 @@ import java.util.Enumeration;
 
 public class JDBCConnection {
     public static void main(String[] args) {
+
+        String URL = "package com.bridgelabz;
+
+import java.sql.*;
+import java.util.Enumeration;
+
+public class JDBCConnection {
+    public static void main(String[] args) {
+
 
         String URL = "jdbc:mysql://localhost:3306/payroll_service_new?characterEncoding=utf8";
         String USER = "root";
@@ -63,6 +65,7 @@ public class JDBCConnection {
             System.out.println("Cannot find the driver in ths classpath");
         }
         
+
         try {
             connection = DriverManager.getConnection(URL, USER, PASS);
             Statement statement = connection.createStatement();
@@ -78,6 +81,7 @@ public class JDBCConnection {
             e.printStackTrace();
         }
     }
+
 }";
         String USER = "root";
         String PASS = "Y12345";
@@ -106,4 +110,5 @@ public class JDBCConnection {
             e.printStackTrace();
         }
     }
+
 }
