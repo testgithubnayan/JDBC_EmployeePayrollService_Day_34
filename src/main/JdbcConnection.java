@@ -1,10 +1,10 @@
 package com.bridgelabz;
 
 import java.sql.*;
-import java.util.Enumeration;
 
 public class JDBCConnection {
     public static void main(String[] args) {
+
 
 
         String URL = "package com.bridgelabz;
@@ -37,6 +37,15 @@ public class JDBCConnection {
             System.out.println("Cannot find the driver in ths classpath");
         }
         
+
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement preparedStatement = connection.prepareStatement("update employee_payroll set salary=? where name=? ");
+            preparedStatement.setDouble(1,150000);
+            preparedStatement.setString(2,"Mark");
+            preparedStatement.execute();
+            ResultSet result = preparedStatement.executeQuery("select * from employee_payroll");
+
         try {
             connection = DriverManager.getConnection(URL, USER, PASS);
             Statement statement = connection.createStatement();
@@ -71,6 +80,7 @@ public class JDBCConnection {
             Statement statement = connection.createStatement();
             statement.execute("update employee_payroll set salary=160000 where name='Mark'");
             ResultSet result = statement.executeQuery("select * from employee_payroll");
+
             while (result.next()){
                 System.out.println(result.getInt("id")+" " +
                         result.getString(2) +" "+
@@ -81,6 +91,7 @@ public class JDBCConnection {
             e.printStackTrace();
         }
     }
+
 
 }";
         String USER = "root";
@@ -110,5 +121,6 @@ public class JDBCConnection {
             e.printStackTrace();
         }
     }
+
 
 }
