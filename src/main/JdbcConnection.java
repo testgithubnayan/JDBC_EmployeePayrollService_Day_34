@@ -6,9 +6,9 @@ import java.util.Enumeration;
 public class JDBCConnection {
     public static void main(String[] args) {
 
-        String URL = "jdbc:mysql://localhost:3306/payroll_service";
+        String URL = "jdbc:mysql://localhost:3306/payroll_service_new?characterEncoding=utf8";
         String USER = "root";
-        String PASS = "Yasin@786";
+        String PASS = "12345";
 
         Connection connection;
 
